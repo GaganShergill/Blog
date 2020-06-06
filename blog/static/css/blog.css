@@ -1,10 +1,3 @@
-@media only screen and (max-width: 767px) {
-  #user {
-    position: static;
-    margin-left: 20px;
-  }
-}
-
 .navbar {
   position: relative;
 }
@@ -34,6 +27,9 @@
   display: block;
 }
 
+.signup_form {
+  width: 400px;
+}
 
 .input-group-prepend label{
 width: 50px;
@@ -193,4 +189,15 @@ background-color: white;
 .medium-editor-textarea:focus {
   border-color: #80bdff;
   outline: 0 none;
+}
+
+@media only screen and (max-width: 767px) {
+  #user {
+    position: static;
+    margin-left: 20px;
+  }
+
+  .signup_form {
+    width: 300px;
+  }
 }
