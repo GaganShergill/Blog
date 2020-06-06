@@ -1,0 +1,196 @@
+@media only screen and (max-width: 767px) {
+  #user {
+    position: static;
+    margin-left: 20px;
+  }
+}
+
+.navbar {
+  position: relative;
+}
+
+.navbar-brand {
+  position: absolute;
+  left: 50%;
+  margin-left: -50px !important;
+  display: block;
+  top: 0px;
+}
+
+.navbar-right {
+  position: absolute;
+  left: 27%;
+}
+
+.jumbotron {
+  padding-top: 50px;
+}
+
+#user-icon {
+  position: absolute;
+  right: 0;
+  top: 8px;
+  margin-right: 20px !important;
+  display: block;
+}
+
+
+.input-group-prepend label{
+width: 50px;
+background-color: #563d7c;
+color: white;
+border:0 !important;
+padding-top: 12px;
+}
+
+input:focus{
+outline: 0 0 0 0  !important;
+box-shadow: 0 0 0 0 !important;
+
+}
+
+.login_btn{
+color: white;
+background-color: #563d7c;
+width: 100px;
+}
+
+.login_btn:hover{
+color: black;
+background-color: white;
+}
+
+.signup_btn {
+color: white;
+background-color: #cf553a;
+width: 100px;
+}
+
+.signup_btn:hover {
+color: black;
+background-color: white;
+}
+
+.post {
+  background-color: white;
+  padding: 1em;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+}
+
+.post-block_meta {
+  display: flex;
+  flex-direction: column;
+}
+
+.post-block_title a {
+  font-family: 'Lobster Two', cursive;
+  color: #cf553a;
+}
+
+.post-block_meta span {
+  font-family: 'Tenali Ramakrishna', sans-serif;
+  font-size: 1.2em;
+  line-height: 1em;
+}
+
+.post-block_meta a {
+  font-family: 'Oswald', sans-serif;
+}
+
+.post-block_content {
+  font-family: 'Montserrat', sans-serif;
+  margin-left: 50px;
+  border-left: 1px solid black;
+  padding-left: 15px;
+  width: 60%;
+}
+
+.posttitle {
+  font-family: 'Lobster Two', cursive;
+  color: #cf553a;
+}
+
+.date {
+  font-family: 'Tenali Ramakrishna', sans-serif;
+  font-size: 1.2em;
+}
+
+.postcontent {
+  font-family: 'Montserrat', sans-serif;
+  margin: 2em;
+}
+
+.postupdate {
+  float: right;
+  position: relative;
+  bottom: 50px;
+  height: 0;
+}
+
+.comments {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.comments_meta {
+  display: flex;
+  line-height: 1em;
+  flex-direction: row;
+  font-family: 'Tenali Ramakrishna', sans-serif;
+  font-size: 1.2em;
+  justify-content: flex-end;
+}
+
+.v1 {
+  height: 15px;
+  position: relative;
+  right: 10px;
+  border-right: 1px solid black;
+}
+
+.comments_meta span:nth-of-type(odd) {
+  margin-right: 20px;
+}
+
+.comment_approve {
+  position: relative;
+  bottom: 90px;
+  height: 25px;
+  align-self: flex-end;
+}
+
+.comments_body {
+  background-color: white;
+  border-radius: 5px;
+}
+
+.post_detail h5 {
+  margin-top: 50px;
+  margin-left: 20px;
+  font-family: 'Oswald', sans-serif;
+  position: relative;
+  top: 15px;
+}
+
+.medium-editor-textarea {
+  min-height: 150px;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  outline: none;
+}
+
+.medium-editor-textarea:focus {
+  border-color: #80bdff;
+  outline: 0 none;
+}

@@ -1,0 +1,10 @@
+{% extends 'blog/base.html' %}
+
+{% block bodyblock %}
+  <h1 class="my-5" style="font-family: 'Oswald', sans-serif;">Register:</h1>
+  <form action="" method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input class="btn login_btn" type="submit" name="" value="Sign Up">
+  </form>
+{% endblock %}

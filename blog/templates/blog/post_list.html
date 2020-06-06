@@ -1,0 +1,26 @@
+{% extends "blog/base.html" %}
+{% block bodyblock %}
+
+  {% for post in post_list %}
+    {% if request.resolver_match.url_name == 'post_list' or request.resolver_match.url_name == 'post_draft_list' and user == post.author %}
+      <div class="post my-3">
+        <header class="post-block_header">
+          <h2 class="post-block_title"><a href="{% url 'blog:post_detail' pk=post.pk %}">{{post.title}}</a></h2>
+          <div class="post-block_meta">
+            {% if post.published_date %}
+              <span>Published on: {{post.published_date|date:"D M Y"}}</span>
+              <span>Author: {{post.author|title}}</span>
+              <a href="{% url 'blog:post_detail' pk=post.pk %}">Comments: {{post.approve_comments.count}}</a>
+            {% else %}
+              <span>Created on: {{post.create_date|date:"D M Y"}}</span>
+            {% endif %}
+          </div>
+        </header>
+        <div class="post-block_content text-justify">
+          <p>{{post.text|truncatewords:30|striptags|safe}}</p>
+          <a class="btn btn-primary btn-sm" href="{% url 'blog:post_detail' pk=post.pk %}">Read More</a>
+        </div>
+      </div>
+    {% endif %}
+  {% endfor %}
+{% endblock %}

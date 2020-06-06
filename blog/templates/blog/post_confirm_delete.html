@@ -1,0 +1,10 @@
+{% extends 'blog/base.html' %}
+
+{% block bodyblock %}
+  <form method="POST" class="text-center">
+    {% csrf_token %}
+    <h4>Are you sure you want to delete <span style="font-family: 'Oswald', sans-serif;">{{object}}</span></h4>
+    <input class="btn btn-danger" type="submit" value="Confirm">
+    <a class="btn btn-primary" href="{% url 'blog:post_detail' pk=post.pk %}">Cancel</a>
+  </form>
+{% endblock %}

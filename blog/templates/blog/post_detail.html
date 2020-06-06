@@ -1,0 +1,75 @@
+{% extends 'blog/base.html' %}
+
+{% block bodyblock %}
+  <h1 class="posttitle text-center">{{post.title}}</h1>
+  {% if user.is_authenticated and user == post.author %}
+  <div class="postupdate">
+    <a class="btn btn-primary btn-sm" href="{% url 'blog:post_edit' pk=post.pk %}">
+      <i class="fa fa-pencil" aria-hidden="true"></i>
+    </a>
+    <a class="btn btn-primary btn-sm" href="{% url 'blog:post_remove' pk=post.pk %}">
+      <i class="fa fa-times" aria-hidden="true"></i>
+    </a>
+  </div>
+  {% endif %}
+  {% if post.published_date %}
+  <div class="date text-center">Author: {{post.author|title}}</div>
+  <div class="date text-center">{{post.published_date}}</div>
+  {% else %}
+    <div class="text-center">
+      <a class="btn btn-default" href="{% url 'blog:post_publish' pk=post.pk %}">Publish</a>
+    </div>
+  {% endif %}
+
+  <div class="postcontent text-justify">{{post.text|safe|linebreaksbr}}</div>
+
+  <hr>
+  {% if post.published_date %}
+  <a class="btn btn-primary btn-comment pull-right mr-3" href="{% url 'blog:add_comment_to_post' pk=post.pk %}">Add Comment</a>
+
+  <div class="container post_detail">
+    <h5>COMMENTS:</h5>
+    {% for comment in post.comments.all %}
+      <br>
+      <div class="comments px-3 mb-2">
+        {% if user == comment.author or user == post.author or comment.approved_comment %}
+          <div class="comments_body px-3 mb-1">{{comment.text|safe|linebreaks}}</div>
+          <div class="comments_meta">
+            {% if comment.approved_comment %}
+            <span>Posted By:<strong>{{comment.author|title}}</strong></span>
+            {% else %}
+            <span>Waiting for Approval... | Posted By:<strong>{{comment.author|title}}</strong></span>
+            {% endif %}
+            <div class="v1"></div>
+            <span>{{comment.create_date}}</span>
+          </div>
+          {% if not comment.approved_comment and user == post.author %}
+              <div class="comment_approve">
+                <a class="btn btn-primary btn-sm" href="{% url 'blog:comment_approve' pk=comment.pk %}">
+                  <i class="fa fa-check" aria-hidden="true"></i>
+                </a>
+                <a class="btn btn-primary btn-sm" href="{% url 'blog:comment_remove' pk=comment.pk %}">
+                  <i class="fa fa-times" aria-hidden="true"></i>
+                </a>
+              </div>
+          {% endif %}
+          {% if user == comment.author %}
+            <div class="comment_approve">
+              <a class="btn btn-primary btn-sm" href="{% url 'blog:comment_edit' pk=comment.pk %}">
+                <i class="fa fa-pencil" aria-hidden="true"></i>
+              </a>
+              <a class="btn btn-primary btn-sm" href="{% url 'blog:comment_remove' pk=comment.pk %}">
+                <i class="fa fa-times" aria-hidden="true"></i>
+              </a>
+            </div>
+          {% endif %}
+        {% endif %}
+      </div>
+      {% empty %}
+      <span class="ml-3">No Comments</span>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+
+{% endblock %}

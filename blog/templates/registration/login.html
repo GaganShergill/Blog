@@ -1,0 +1,33 @@
+{% extends 'blog/base.html' %}
+
+{% block bodyblock %}
+
+  {% if form.errors %}
+    <p class="text-center">Your username and password didn't match! Please try again.</p>
+  {% endif %}
+
+  <div class="d-flex flex-column justify-content-center col-5 mx-auto">
+    <h3>Sign In</h3>
+    <form action="{% url 'login' %}" method="POST">
+      {% csrf_token %}
+      <div class="input-group form-group">
+        <div class="input-group-prepend">
+          <label for="id_username" class="input-group-text fa fa-user"></label>
+        </div>
+        <input type="text" name="username" autofocus="" autocapitalize="none" autocomplete="username" maxlength="150" required="" id="id_username" class="form-control" placeholder="Enter Username">
+
+      </div>
+      <div class="input-group form-group">
+        <div class="input-group-prepend">
+          <label for="id_password" class="input-group-text fa fa-key"></label>
+        </div>
+      <input type="password" name="password" autocomplete="current-password" required="" id="id_password" class="form-control" placeholder="Enter Password">
+      </div>
+      <div class="form-group text-center">
+        <input type="submit" value="Login" class="btn login_btn">
+        <input type="hidden" name="next" value={{next}}>
+      </div>
+    </form>
+    <a class="btn col-3 signup_btn" href="{% url 'blog:register' %}">Sign Up!</a>
+  </div>
+{% endblock %}

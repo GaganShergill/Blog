@@ -1,0 +1,13 @@
+{% extends 'blog/base.html' %}
+
+{% block bodyblock %}
+  <h1 class="text-center" style="font-family: 'Oswald', sans-serif">New Post</h1>
+  <form class="post-form form-group" method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" class="save btn btn-default" value="Publish">
+  </form>
+
+  <script>var editor=new MediumEditor('.editable');</script>
+
+{% endblock %}
