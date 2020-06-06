@@ -192,7 +192,7 @@ background-color: white;
 }
 
 @media only screen and (max-width: 767px) {
-  #user {
+  #user-icon {
     position: static;
     margin-left: 20px;
   }
