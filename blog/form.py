@@ -2,6 +2,7 @@ from django import forms
 from .models import Post, Comment
 from django.contrib.auth.models import User
 from django.utils.translation import gettext as _
+from django.contrib.auth.password_validation import validate_password
 
 class PostForm(forms.ModelForm):
     class Meta():
@@ -52,6 +53,7 @@ class UserCreationForm(forms.ModelForm):
 
     def clean_password2(self):
         password1 = self.cleaned_data.get("password1")
+        validate_password(password1)
         password2 = self.cleaned_data.get("password2")
         if password1 and password2 and password1 != password2:
             raise forms.ValidationError(
