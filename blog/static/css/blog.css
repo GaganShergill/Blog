@@ -75,6 +75,10 @@ background-color: white;
   flex-direction: row;
 }
 
+.post:hover {
+  box-shadow: 0 0 2px 0 rgba(7, 28, 45, 0.8) inset;
+}
+
 .post-block_meta {
   display: flex;
   flex-direction: column;
